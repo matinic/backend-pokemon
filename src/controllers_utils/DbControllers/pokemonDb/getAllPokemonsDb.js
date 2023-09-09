@@ -10,8 +10,11 @@ module.exports = async () => {
       },
     },
   });
-  return pokemons.map((pokemon) => ({
+  if (pokemons.length) return pokemons?.map((pokemon) => ({
     ...pokemon.dataValues,
     types: pokemon.dataValues.types.map((t) => t.name),
   }));
+  else{
+    return []
+  }
 };
