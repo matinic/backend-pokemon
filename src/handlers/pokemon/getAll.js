@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     const allPokemons = await getAllPokemons();
     // const allPokemonsDb = await getAllPokemonsDb();
     // return res.status(200).json([...allPokemons]);
-    res.send('<h2>ALL POKEMONS ROUTE</h2>')
+    res.send(allPokemons)
   } catch (error) {
     return res.status(404).json(error.message);
   }
