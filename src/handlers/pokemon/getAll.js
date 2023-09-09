@@ -3,7 +3,7 @@ const getAllPokemonsDb = require("../../controllers_utils/DbControllers/pokemonD
 
 module.exports = async (req, res) => {
   try {
-    // const allPokemons = await getAllPokemons();
+    const allPokemons = await getAllPokemons();
     // const allPokemonsDb = await getAllPokemonsDb();
     // return res.status(200).json([...allPokemons]);
     res.send('<h2>ALL POKEMONS ROUTE</h2>')
