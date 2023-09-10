@@ -3,7 +3,7 @@ const getOnePokemon = require("../getOnePokemon");
 
 module.exports = async ()=>{
     const {results} = (
-      await axios(`https://pokeapi.co/api/v2/pokemon?limit=100`)
+      await axios(`https://pokeapi.co/api/v2/pokemon?limit=60`)
     ).data;
     const pokemons = await Promise.all(
       results.map(async (pokemon) => {
