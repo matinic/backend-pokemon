@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
       native: false, // lets Sequelize know we can use pg-native for ~30% more speed
       dialectModule: require('pg'),
       // dialectOptions: {
-      //    ssl: true, 
+      //    ssl: true,
       //  },
    }
 );
