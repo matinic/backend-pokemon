@@ -2,19 +2,9 @@ require('dotenv').config();
 const { Sequelize, Op } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const { DB_URL } = process.env;
+const { DATABASE_URL } = process.env;
 
-const sequelize = new Sequelize(
-   DB_URL,
-   // {
-   //    logging: false, // set to console.log to see the raw SQL queries
-   //    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-   //    dialectModule: "postgres",
-   //    dialectOptions: {
-   //       ssl: true,
-   //     },
-   // }
-);
+const sequelize = new Sequelize(DATABASE_URL);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -47,6 +37,8 @@ const { Pokemon, Type } = sequelize.models;
 
 Pokemon.belongsToMany(Type, {through: "pokemon_type"} )
 Type.belongsToMany(Pokemon, {through: "pokemon_type"} )
+
+sequelize.sync(()=>{console.log("sincronizado con exito")})
 
 module.exports = {
    ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
